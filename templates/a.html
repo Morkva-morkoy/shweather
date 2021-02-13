@@ -58,7 +58,9 @@
         <h2 class="my-0 fw-normal">Санкт-Петербург</h2>
       </div>
       <div class="card-body">
-        <h1 class="card-title pricing-card-title">-10°C</h1>
+          {% for t in temp %}
+            <h1 class="card-title pricing-card-title">{{ t.temp_spb }}</h1>
+          {% endfor %}
         <ul class="list-unstyled mt-3 mb-4">
           <li>5м/с</li>
           <li>767мм</li>
@@ -73,7 +75,9 @@
         <h2 class="my-0 fw-normal">Москва</h2>
       </div>
       <div class="card-body">
-        <h1 class="card-title pricing-card-title">-14°C</h1>
+        {% for t in temp %}
+            <h1 class="card-title pricing-card-title">{{ t.temp_msk}}</h1>
+        {% endfor %}
         <ul class="list-unstyled mt-3 mb-4">
           <li>10м/с</li>
           <li>760мм</li>
@@ -88,7 +92,9 @@
         <h2 class="my-0 fw-normal">Донбасс</h2>
       </div>
       <div class="card-body">
-        <h1 class="card-title pricing-card-title">+38°C</h1>
+        {% for t in temp %}
+            <h1 class="card-title pricing-card-title">{{ t.temp_don }}</h1>
+        {% endfor %}
         <ul class="list-unstyled mt-3 mb-4">
           <li>1м/с</li>
           <li>720мм</li>
