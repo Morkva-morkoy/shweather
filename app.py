@@ -9,7 +9,7 @@ def hello_world():
     return render_template('d.html')
 
 
-@app.route('/sing-in')
+@app.route('/sign-in')
 def log():
     return render_template('b.html')
 
