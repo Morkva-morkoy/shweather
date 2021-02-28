@@ -2,9 +2,10 @@
  * Globals
  */
 
-.navbruh-dark {
+ .navbruh-dark {
   background-color: #333;
 }
+
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,

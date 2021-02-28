@@ -14,8 +14,8 @@ def log():
     return render_template('b.html')
 
 
-@app.route('/about-us')
-def about():
+@app.route('/shlyapa-voice')
+def shlp():
     return render_template('c.html')
 
 
