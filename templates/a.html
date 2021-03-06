@@ -31,6 +31,7 @@
     </style>
     <link href="{{url_for('static', filename='styles/shlyap.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='styles/cover.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='styles/cheatsheet.css')}}" rel="stylesheet">
     <title>Shweather</title>
 </head>
 
@@ -49,14 +50,14 @@
 
 <main class="container">
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4" style="color: rgba(255, 255, 255, .8);">Погода</h1>
+    <h1 class="display-4" style="color: rgba(255, 255, 255, .8);">Weather</h1>
   </div>
 
   <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
     <div class="col">
       <div class="card mb-4 shadow-sm text-white-50" style="background-color: #3b3d3f;">
       <div class="card-header">
-        <h2 class="my-0 fw-normal">Санкт-Петербург</h2>
+        <h2 class="my-0 fw-normal">Saint-Petersburg</h2>
       </div>
       <div class="card-body">
           {% for t in temp %}
@@ -70,14 +71,14 @@
           <li>{{ t.d_spb }}</li>
           {% endfor %}
         </ul>
-        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Подробнее</button>
+        <button type="button" class="w-100 btn btn-lg btn-outline-primary">More Info</button>
       </div>
     </div>
     </div>
     <div class="col">
       <div class="card mb-4 shadow-sm text-white-50" style="background-color: #3b3d3f;">
       <div class="card-header">
-        <h2 class="my-0 fw-normal">Москва</h2>
+        <h2 class="my-0 fw-normal">Moscow</h2>
       </div>
       <div class="card-body">
         {% for t in temp %}
@@ -91,14 +92,14 @@
           <li>{{ t.d_msk }}</li>
           {% endfor %}
         </ul>
-        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Подробнее</button>
+        <button type="button" class="w-100 btn btn-lg btn-outline-primary">More Info</button>
       </div>
     </div>
     </div>
     <div class="col">
       <div class="card mb-4 shadow-sm text-white-50" style="background-color: #3b3d3f;">
       <div class="card-header">
-        <h2 class="my-0 fw-normal">Донбасс</h2>
+        <h2 class="my-0 fw-normal">Donbass</h2>
       </div>
       <div class="card-body">
         {% for t in temp %}
@@ -112,11 +113,74 @@
           <li>{{ t.d_don }}</li>
           {% endfor %}
         </ul>
-        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Подробнее</button>
+        <button type="button" class="w-100 btn btn-lg btn-outline-primary">More Info</button>
       </div>
     </div>
     </div>
   </div>
+
+  <div class="bd-example">
+    <table class="table table-striped">
+      <thead>
+      <tr style="color: rgba(255, 255, 255, .8);">
+        <th scope="col">#</th>
+        <th scope="col">City</th>
+        <th scope="col">Country</th>
+        <th scope="col">Link</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="text-white-50">
+        <th scope="row">1</th>
+        <td>Saint-Petersburg</td>
+        <td>Russia</td>
+        <td><a href="link">More Info</a></td>
+      </tr>
+      <tr class="text-white-50">
+        <th scope="row">2</th>
+        <td>Moscow</td>
+        <td>Russia</td>
+        <td><a href="link">More Info</a></td>
+      </tr>
+      <tr class="text-white-50">
+        <th scope="row">3</th>
+        <td>Donbass</td>
+        <td>Ukraine</td>
+        <td><a href="link">More Info</a></td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+      </tbody>
+    </table> -->
 
 </main>
 
