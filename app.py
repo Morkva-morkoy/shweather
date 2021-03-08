@@ -8,9 +8,10 @@ import sqlite3
 app = Flask(__name__)
 
 
-# @app.route("/get_my_ip", methods=["GET"])
-# def get_my_ip():
-#     return jsonify({'ip': request.remote_addr}), 200
+@app.route("/get_my_ip", methods=["GET"])
+def get_my_ip():
+    return jsonify({'ip': request.remote_addr}), 200
+
 
 @app.route('/sign-in', methods=["post"])
 def p():
