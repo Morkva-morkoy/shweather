@@ -4,6 +4,7 @@ from flask import jsonify
 from flask import request
 from db import cursor
 import sqlite3
+import random
 
 app = Flask(__name__)
 
@@ -18,9 +19,10 @@ def p():
     with sqlite3.connect("db.db") as conn:
         text = request.form["text"]
         text1 = request.form["text1"]
-        print(text, text1)
+        text2 = request.form["text2"]
+        text3 = request.form["text3"]
         conn.execute(f"INSERT INTO users (id, nickname, password, email, city) \
-          VALUES ('1', 'obama', '{text1}', '{text}', 'BARAK')");
+          VALUES ('{random.randint(1,10000)}', '{text2}', '{text1}', '{text}', '{text3}')");
         conn.commit()
     return render_template('b.html')
 
