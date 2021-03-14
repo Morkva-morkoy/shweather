@@ -22,7 +22,7 @@ def p():
         text2 = request.form["text2"]
         text3 = request.form["text3"]
         conn.execute(f"INSERT INTO users (id, nickname, password, email, city) \
-          VALUES ('{random.randint(1,10000)}', '{text2}', '{text1}', '{text}', '{text3}')");
+          VALUES ('', '{text2}', '{text1}', '{text}', '{text3}')");
         conn.commit()
     return render_template('b.html')
 
@@ -45,7 +45,6 @@ def shlp():
 @app.route('/shweather')
 def shweather():
     return render_template('a.html', temp=temp)
-
 
 if __name__ == '__main__':
     app.run()
