@@ -14,21 +14,6 @@
     <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
     <link rel="shortcut icon" href="{{url_for('static', filename='img/shlyapa.ico')}}" type="image/x-icon">
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
     <link href="{{url_for('static', filename='styles/shlyap.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='styles/cover.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='styles/cheatsheet.css')}}" rel="stylesheet">
@@ -37,16 +22,14 @@
 
 <body style="background-color: #212529">
 
-<header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 shadow-sm" style="background-color: rgb(30, 30, 30); padding-left: 16px;">
-    <p class="h5 my-0 me-md-auto fw-normal"><a class="text-white" style="font-weight: 600; padding-top: .5rem; padding-bottom: .5rem;" href="/">SHLYAPA.inc</a></p>
-  <nav class="my-2 my-md-0 me-md-3">
-    <a class="p-2" style="color: rgba(255, 255, 255, .8);" href="#"></a>
-    <a class="p-2" style="color: rgba(255, 255, 255, .8);" href="#">Enterprise</a>
-    <a class="p-2" style="color: rgba(255, 255, 255, .8);" href="#">Support</a>
-    <a class="p-2" style="color: rgba(255, 255, 255, .8);" href="#">Pricing</a>
+  <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 shadow-sm" style="background-color: rgb(30, 30, 30); padding-left: 16px;">
+    <p class="h5 my-0 fw-normal"><a class="text-white" style="font-weight: 600; padding-top: .5rem; padding-bottom: .5rem; text-decoration: none;" href="/">SHLYAPA.inc</a></p>
+  <nav class="my-2 my-md-0 me-md-auto" style="margin-left: 16px;">
+    <a class="p-2" style="color: rgba(255, 255, 255, .55); text-decoration: none" href="shweather">Weather</a>
+    <a class="p-2" style="color: rgba(255, 255, 255, .55); text-decoration: none" href="shlyapa-voice">SHLYAPA</a>
   </nav>
-  <a class="btn btn-outline-primary" style="width: 100px; height: 40px;" href="sign-in">Sign up</a>
-</header>
+  <a class="btn btn-outline-primary" style="width: 100px; height: 40px;" href="sign-up">Sign up</a>
+  </header>
 
 <main class="container">
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">

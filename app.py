@@ -14,7 +14,7 @@ def get_my_ip():
     return jsonify({'ip': request.remote_addr}), 200
 
 
-@app.route('/sign-in', methods=["post"])
+@app.route('/sign-up', methods=["post"])
 def p():
     with sqlite3.connect("db.db") as conn:
         text = request.form["text"]
@@ -32,7 +32,7 @@ def hello_world():
     return render_template('d.html')
 
 
-@app.route('/sign-in')
+@app.route('/sign-up')
 def log():
     return render_template('b.html', cursor=cursor)
 

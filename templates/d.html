@@ -42,46 +42,27 @@
 
     <link href="{{url_for('static', filename='styles/cover.css')}}" rel="stylesheet">
   </head>
-  <body style="background-color: #212529; padding-top: 5rem;">
+  <body style="background-color: #212529;">
 
-<nav class="navbar navbar-expand-md fixed-top navbar-dark" style="background-color:rgb(30, 30, 30); padding: 1rem .75rem;">
-  <div class="container-fluid">
-    <a class="navbar-brand" style="font-weight: 600;">SHLYAPA Inc.</a>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          <a class="nav-link" href="shweather">Weather</a>
-        </li>
-        <li class="nav-item">
-          <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">SHLYAPA</a> -->
-          <a class="nav-link" href="shlyapa-voice">SHLYAPA</a>
-        </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-          <ul class="dropdown-menu" aria-labelledby="dropdown01">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li> -->
-      </ul>
-      <!-- <form class="d-flex" style="padding-left: 10px; padding-right: 10px;">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit" style="height: 40px;">Search</button>
-      </form> -->
-      <div>
-        <a class="btn btn-outline-primary" style="width: 100px; height: 40px;" href="sign-in">Sign up</a>
-      </div>
-    </div>
-  </div>
+
+<header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 shadow-sm" style="background-color: rgb(30, 30, 30); padding-left: 16px;">
+  <p class="h5 my-0 fw-normal"><a class="text-white" style="font-weight: 600; padding-top: .5rem; padding-bottom: .5rem; text-decoration: none;" href="/">SHLYAPA.inc</a></p>
+<nav class="my-2 my-md-0 me-md-auto" style="margin-left: 16px;">
+  <a class="p-2" style="color: rgba(255, 255, 255, .55); text-decoration: none" href="shweather">Weather</a>
+  <a class="p-2" style="color: rgba(255, 255, 255, .55); text-decoration: none" href="shlyapa-voice">SHLYAPA</a>
 </nav>
+<a class="btn" style="width: 100px; height: 40px; color: #212529; background-color: #fff!important; border-color: #fff!important; margin-right: 8px;" href="sign-up">Log in</a>
+<a class="btn" style="width: 100px; height: 40px; color: #fff!important; border-color: #fff!important; margin-left: 8px;" href="sign-up">Sign up</a>
+</header>
+
+
 
 <main class="container">
 
-  <div class="starter-template text-center py-5 px-3">
-    <h1 style="color: rgba(255, 255, 255, .8);">Bootstrap starter template</h1>
-    <p class="lead text-white-50">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+  <div class="starter-template text-center px-3" style="padding-top: 8rem">
+    <h1 style="color: rgba(255, 255, 255, .8);">SHLYAPA</h1>
+    <p class="lead text-white-50">*slogan*<br> blah-blah-blah</p>
   </div>
 
 </main><!-- /.container -->
