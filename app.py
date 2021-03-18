@@ -22,7 +22,7 @@ def p():
         text2 = request.form["text2"]
         text3 = request.form["text3"]
         conn.execute(f"INSERT INTO users (id, nickname, password, email, city) \
-          VALUES ('{random.randint(1,10000)}', '{text2}', '{text1}', '{text}', '{text3}')");
+          VALUES ('{random.randint(1,10000)}', '{text2}', '{text1}', '{text}', '{text3}')")
         conn.commit()
     return render_template('b.html')
 
@@ -35,6 +35,11 @@ def hello_world():
 @app.route('/sign-up')
 def log():
     return render_template('b.html', cursor=cursor)
+
+
+@app.route('/log-in')
+def login():
+    return render_template('f.html', cursor=cursor)
 
 
 @app.route('/shlyapa-voice')
