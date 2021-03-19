@@ -52,5 +52,20 @@ def shweather():
     return render_template('a.html', temp=temp)
 
 
+@app.route('/spb')
+def spbm():
+    return render_template('spb_more.html', temp=temp)
+
+
+@app.route('/moscow')
+def mskm():
+    return render_template('moscow_more.html', temp=temp)
+
+
+@app.route('/donbass')
+def dnbm():
+    return render_template('donbass.html', temp=temp)
+
+
 if __name__ == '__main__':
     app.run()

@@ -35,20 +35,21 @@
     <link href="{{url_for('static', filename='styles/signin.css')}}" rel="stylesheet">
   </head>
   <body class="text-center" style="background-color: #212529">
-
 <main class="form-signin">
-  <form method="post">
+  <div style="margin-bottom: 5rem;">
     <img class="mb-4" src="{{url_for('static', filename='img/shlypa.png')}}" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 style="color: rgba(255, 255, 255, .8); font-size: 3.5rem;">SHLYAPA</h1>
+  </div>
+  <form method="post">
     <label for="inputEmail" class="visually-hidden" style="margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">Email address</label>
-    <input id="inputEmail" name="text" class="form-control" placeholder="Email address" required autofocus>
+    <input type="email" id="inputEmail" name="text" class="form-control" placeholder="Email address" required autofocus>
     <label for="inputPassword" class="visually-hidden" style="margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">Password</label>
-    <input id="inputPassword" name="text1" class="form-control" placeholder="Password">
+    <input type="password" id="inputPassword" name="text1" class="form-control" style="border-bottom-left-radius: .1px; border-bottom-right-radius: .1px;" placeholder="Password">
     <label for="inputNickname" class="visually-hidden" style="margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">Nickname</label>
-    <input id="inputNickname" name="text2" class="form-control" placeholder="Nickname">
+    <input id="inputNickname" name="text2" class="form-control" style="margin-bottom: -1px; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: .1px; border-bottom-right-radius: .1px;" placeholder="Nickname">
     <label for="inputCity" class="visually-hidden" style="margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">City</label>
-    <input id="inputCity" name="text3" class="form-control" placeholder="City">
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <input id="inputCity" name="text3" class="form-control" style="margin-bottom: -1px; border-top-left-radius: 0; border-top-right-radius: 0;" placeholder="City">
+    <button class="w-100 btn btn-lg btn-outline-light" type="submit" style="margin-top: 1rem;">Sign up</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
   </form>
 </main>
