@@ -47,9 +47,11 @@
   <body class="text-center" style="background-color: #212529">
 
 <main class="form-signin">
-  <form method="post">
+  <div style="margin-bottom: 116px">
     <img class="mb-4" src="{{url_for('static', filename='img/shlypa.png')}}" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 style="font-weight: 500; color: rgba(255, 255, 255, 0.8); font-size: 3.5rem;">SHLYAPA</h1>
+  </div>
+  <form method="post" style="margin-top: 1px;">
     <label for="inputEmail" class="visually-hidden">Email address</label>
     <input type="email" id="inputEmail" class="form-control" name="text" placeholder="Email address" required autofocus>
     <label for="inputPassword" class="visually-hidden">Password</label>
@@ -57,11 +59,12 @@
 
 
     <div class="checkbox mb-3">
+      <p style="color: rgba(255, 255, 255, 0.55); margin-top: .5rem;">New to SHLYAPA?<a style="color: rgba(255, 255, 255, 0.55);" href="sign-up">Create an account.</a></p>
       <label>
         <p class="text-white-50"><input type="checkbox" value="remember-me"> Remember me</p>
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
   </form>
 </main>
