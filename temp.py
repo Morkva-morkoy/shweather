@@ -39,4 +39,4 @@ weather4 = three_h_forecaster.get_weather_at(tomorrow_at_mid).temperature("celsi
 weather5 = three_h_forecaster.get_weather_at(tomorrow_at_three).temperature("celsius")["temp"]
 weather6 = three_h_forecaster.get_weather_at(tomorrow_at_six).temperature("celsius")["temp"]
 weather7 = three_h_forecaster.get_weather_at(tomorrow_at_nine).temperature("celsius")["temp"]
-weather_tomorrow = [weather, weather1, weather2, weather3, weather4]
+weather_tomorrow = [weather, weather1, weather2, weather3, weather4, weather5, weather6, weather7]
