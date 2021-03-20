@@ -152,9 +152,65 @@
           </button>
         </div>
       </div>
+      <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="516" height="216" style="display: block; width: 516px; height: 216px;"></canvas>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+      <script>/* globals Chart:false, feather:false */
 
+<<<<<<< HEAD
       <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
+=======
+      // Graphs
+      var ctx = document.getElementById('myChart')
+      // eslint-disable-next-line no-unused-vars
+      var myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+              labels: [
+                  '0:00',
+                  '3:00',
+                  '6:00',
+                  '9:00',
+                  '12:00',
+                  '15:00',
+                  '18:00',
+                  '21:00'
+              ],
+              {% for t in temp %}
+              datasets: [{
+                  data: [
+                      {{ t.weather1 }},
+                      {{ t.weather2 }},
+                      {{ t.weather3 }},
+                      {{ t.weather4 }},
+                      {{ t.weather5 }},
+                      {{ t.weather6 }},
+                      {{ t.weather7 }},
+                      {{ t.weather8 }}
+
+                  ],
+              {% endfor %}
+                  lineTension: 0,
+                  backgroundColor: 'transparent',
+                  borderColor: '#212529',
+                  borderWidth: 4,
+                  pointBackgroundColor: '#212529'
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: false
+                      }
+                  }]
+              },
+              legend: {
+                  display: false
+              }
+          }
+      })</script>
+>>>>>>> bdac948cbca7bbb47e37677b752412409f68f277
       <h2>Section title</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
