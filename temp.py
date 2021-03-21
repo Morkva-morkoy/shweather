@@ -18,6 +18,9 @@ observation_don = mgr.weather_at_place("Donetsk, UA")
 w_don = observation_don.weather
 tem_don = w_don.temperature("celsius")["temp"]
 
+observation_don = mgr.weather_at_place("Kropyvnytskyi, UA")
+w_kro = observation_don.weather
+tem_kro = w_kro.temperature("celsius")["temp"]
 # three_h_forecast = mgr.forecast_at_place('Saint Petersburg, RU', '3h').forecast
 # print(forecaster.when_starts('iso'))
 # print(forecaster.when_ends('iso'))
@@ -57,3 +60,12 @@ dweather4 = dthree_h_forecaster.get_weather_at(tomorrow_at_mid).temperature("cel
 dweather5 = dthree_h_forecaster.get_weather_at(tomorrow_at_three).temperature("celsius")["temp"]
 dweather6 = dthree_h_forecaster.get_weather_at(tomorrow_at_six).temperature("celsius")["temp"]
 dweather7 = dthree_h_forecaster.get_weather_at(tomorrow_at_nine).temperature("celsius")["temp"]
+kthree_h_forecaster = mgr.forecast_at_place('Kropyvnytskyi', '3h')
+kweather = kthree_h_forecaster.get_weather_at(tomorrow_at_midnight).temperature("celsius")["temp"]
+kweather1 = kthree_h_forecaster.get_weather_at(tomorrow_at_three_night).temperature("celsius")["temp"]
+kweather2 = kthree_h_forecaster.get_weather_at(tomorrow_at_six_morning).temperature("celsius")["temp"]
+kweather3 = kthree_h_forecaster.get_weather_at(tomorrow_at_nine_morning).temperature("celsius")["temp"]
+kweather4 = kthree_h_forecaster.get_weather_at(tomorrow_at_mid).temperature("celsius")["temp"]
+kweather5 = kthree_h_forecaster.get_weather_at(tomorrow_at_three).temperature("celsius")["temp"]
+kweather6 = kthree_h_forecaster.get_weather_at(tomorrow_at_six).temperature("celsius")["temp"]
+kweather7 = kthree_h_forecaster.get_weather_at(tomorrow_at_nine).temperature("celsius")["temp"]

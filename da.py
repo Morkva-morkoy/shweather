@@ -14,3 +14,7 @@ d_msk = w_msk.pressure["press"]
 observation_don = mgr.weather_at_place("Donetsk, UA")
 w_don = observation_don.weather
 d_don = w_don.pressure["press"]
+
+observation_kro = mgr.weather_at_place("Kropyvnytskyi, UA")
+w_kro = observation_kro.weather
+d_kro = w_kro.pressure["press"]
