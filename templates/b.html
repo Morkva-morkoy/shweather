@@ -9,7 +9,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
     <link rel="shortcut icon" href="{{url_for('static', filename='img/shlyapa.ico')}}" type="image/x-icon">
 
-    <!-- Favicons -->
+
 <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
 <meta name="theme-color" content="#7952b3">
 
@@ -36,20 +36,20 @@
   </head>
   <body class="text-center" style="background-color: #212529">
 <main class="form-signin">
-  <div style="margin-bottom: 5rem;">
+  <div style="margin-bottom: 4.5rem;">
     <img class="mb-4" src="{{url_for('static', filename='img/shlypa.png')}}" alt="" width="72" height="57">
-    <h1 style="color: rgba(255, 255, 255, .8); font-size: 3.5rem;">SHLYAPA</h1>
+    <h1 style="font-weight: 500; color: rgba(255, 255, 255, 0.8); font-size: 3.5rem; margin-bottom: .5rem;">SHLYAPA</h1>
   </div>
   <form method="post">
-    <label for="inputEmail" class="visually-hidden" style="margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">Email address</label>
-    <input type="email" id="inputEmail" name="text" class="form-control" placeholder="Email address" required autofocus>
-    <label for="inputPassword" class="visually-hidden" style="margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">Password</label>
-    <input type="password" id="inputPassword" name="text1" class="form-control" style="border-bottom-left-radius: .1px; border-bottom-right-radius: .1px;" placeholder="Password">
-    <label for="inputNickname" class="visually-hidden" style="margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">Nickname</label>
-    <input id="inputNickname" name="text2" class="form-control" style="margin-bottom: -1px; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-left-radius: .1px; border-bottom-right-radius: .1px;" placeholder="Nickname">
-    <label for="inputCity" class="visually-hidden" style="margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">City</label>
-    <input id="inputCity" name="text3" class="form-control" style="margin-bottom: -1px; border-top-left-radius: 0; border-top-right-radius: 0;" placeholder="City">
-    <button class="w-100 btn btn-lg btn-outline-light" type="submit" style="margin-top: 1rem;">Sign up</button>
+    <label for="inputEmail" class="visually-hidden" style="margin-bottom: -1px;">Email address</label>
+    <input type="email" id="inputEmail" name="text" class="form-control" style="border-bottom-right-radius: .1px; border-bottom-left-radius: .1px;" placeholder="Email address" required autofocus>
+    <label for="inputPassword" class="visually-hidden" style="margin-bottom: -1px; border-bottom-right-radius: .1; border-bottom-left-radius: .1;">Password</label>
+    <input type="password" id="inputPassword" name="text1" class="form-control" style="border-bottom-right-radius: .1px; border-bottom-left-radius: .1px; border-top-right-radius: .1px; border-top-left-radius: .1px;" placeholder="Password">
+    <label for="inputNickname" class="visually-hidden" style="margin-bottom: -1px;">Nickname</label>
+    <input id="inputNickname" name="text2" class="form-control" style="margin-bottom: -1px; border-bottom-right-radius: .1px; border-bottom-left-radius: .1px; border-top-right-radius: .1px; border-top-left-radius: .1px;" placeholder="Nickname">
+    <label for="inputCity" class="visually-hidden">City</label>
+    <input id="inputCity" name="text3" class="form-control" style="border-top-right-radius: .1px; border-top-left-radius: .1px;" placeholder="City">
+    <button class="w-100 btn btn-lg btn-outline-light" type="submit" style="margin-top: 57px;">Sign up</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
   </form>
 </main>
