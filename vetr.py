@@ -14,4 +14,3 @@ v_msk = w_msk.wind()["speed"]
 observation_don = mgr.weather_at_place("Donetsk, UA")
 w_don = observation_don.weather
 v_don = w_don.wind()["speed"]
-

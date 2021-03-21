@@ -27,4 +27,3 @@ temp = [
         'd_don': str(int(int(d_don) * 0.75)) + ' мм рт. ст.'
     }
 ]
-
