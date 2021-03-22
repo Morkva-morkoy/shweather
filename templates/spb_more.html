@@ -40,7 +40,6 @@
         }
       }
     </style>
-
     
     <!-- Custom styles for this template -->
     <link href="{{url_for('static', filename='styles/weather_more.css')}}" rel="stylesheet">
@@ -175,14 +174,12 @@
               {% for t in temp %}
               datasets: [{
                   data: [
-                      {{ t.weather1 }},
-                      {{ t.weather2 }},
-                      {{ t.weather3 }},
-                      {{ t.weather4 }},
-                      {{ t.weather5 }},
-                      {{ t.weather6 }},
-                      {{ t.weather7 }},
-                      {{ t.weather8 }}
+                      {{ t.sweather_today }},
+                      {{ t.sweather_today1 }},
+                      {{ t.sweather_today2 }},
+                      {{ t.sweather_today3 }},
+                      {{ t.sweather_tomorrow }}
+                      
 
                   ],
               {% endfor %}
