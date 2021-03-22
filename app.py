@@ -72,9 +72,7 @@ def h():
     return render_template('donbass_more.html', temp=temp)
 
 
-@app.route('/kro')
-def f():
-    return render_template('kropi_more.html', temp=temp)
+
 
 
 if __name__ == '__main__':
