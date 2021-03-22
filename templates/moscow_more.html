@@ -162,26 +162,27 @@
           type: 'line',
           data: {
               labels: [
-                  '0:00',
-                  '3:00',
-                  '6:00',
-                  '9:00',
+                  '00:00',
+                  '03:00',
+                  '06:00',
+                  '09:00',
                   '12:00',
                   '15:00',
                   '18:00',
-                  '21:00'
+                  '21:00',
               ],
               {% for t in temp %}
               datasets: [{
                   data: [
-                      {{ t.mweather1 }},
-                      {{ t.mweather2 }},
-                      {{ t.mweather3 }},
-                      {{ t.mweather4 }},
-                      {{ t.mweather5 }},
-                      {{ t.mweather6 }},
-                      {{ t.mweather7 }},
-                      {{ t.mweather8 }}
+                      {{ t.mweather_today1 }},
+                      {{ t.mweather_today2 }},
+                      {{ t.mweather_today3 }},
+                      {{ t.mweather_today4 }},
+                      {{ t.mweather_today5 }},
+                      {{ t.mweather_today6 }},
+                      {{ t.mweather_today7 }},
+                      {{ t.mweather_today8 }},
+
 
                   ],
               {% endfor %}

@@ -160,28 +160,29 @@
       // eslint-disable-next-line no-unused-vars
       var myChart = new Chart(ctx, {
           type: 'line',
-          data: {
+         data: {
               labels: [
-                  '0:00',
-                  '3:00',
-                  '6:00',
-                  '9:00',
+                  '00:00',
+                  '03:00',
+                  '06:00',
+                  '09:00',
                   '12:00',
                   '15:00',
                   '18:00',
-                  '21:00'
+                  '21:00',
               ],
               {% for t in temp %}
               datasets: [{
                   data: [
-                      {{ t.dweather1 }},
-                      {{ t.dweather2 }},
-                      {{ t.dweather3 }},
-                      {{ t.dweather4 }},
-                      {{ t.dweather5 }},
-                      {{ t.dweather6 }},
-                      {{ t.dweather7 }},
-                      {{ t.dweather8 }}
+                      {{ t.dweather_today1 }},
+                      {{ t.dweather_today2 }},
+                      {{ t.dweather_today3 }},
+                      {{ t.dweather_today4 }},
+                      {{ t.dweather_today5 }},
+                      {{ t.dweather_today6 }},
+                      {{ t.dweather_today7 }},
+                      {{ t.dweather_today8 }},
+
 
                   ],
               {% endfor %}
