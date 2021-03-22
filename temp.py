@@ -57,6 +57,11 @@ dweather_tomorrow6 = dthree_h_forecaster.get_weather_at(tomorrow_at_six).tempera
 dweather_tomorrow7 = dthree_h_forecaster.get_weather_at(tomorrow_at_nine).temperature("celsius")["temp"]
 
 now = datetime.datetime.now().hour
+now_bruh = now/3
+if isinstance(now_bruh, float):
+    now = now-1
+else:
+    pass
 
 
 def get_forecast(city, lat, lon):
