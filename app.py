@@ -6,7 +6,6 @@ from db import cursor
 import sqlite3
 import random
 
-
 app = Flask(__name__)
 
 
@@ -71,6 +70,11 @@ def g():
 @app.route('/don')
 def h():
     return render_template('donbass_more.html', temp=temp)
+
+
+@app.route('/kro')
+def f():
+    return render_template('kropi_more.html', temp=temp)
 
 
 if __name__ == '__main__':

@@ -15,3 +15,6 @@ observation_don = mgr.weather_at_place("Donetsk, UA")
 w_don = observation_don.weather
 v_don = w_don.wind()["speed"]
 
+observation_kro = mgr.weather_at_place("Kropyvnytskyi, UA")
+w_kro = observation_kro.weather
+v_kro = w_kro.wind()["speed"]

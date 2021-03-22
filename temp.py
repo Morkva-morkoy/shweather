@@ -1,6 +1,5 @@
 from pyowm import OWM
-from pyowm.utils import config
-from pyowm.utils import timestamps
+from pyowm.utils import timestamps, formatting, config
 import datetime
 
 owm = OWM('9a5b8a94e895ee75f75dee6ec42c3414')
@@ -18,16 +17,6 @@ observation_don = mgr.weather_at_place("Donetsk, UA")
 w_don = observation_don.weather
 tem_don = w_don.temperature("celsius")["temp"]
 
-
-# today_at_midnight = datetime.datetime(2021, 3, 22, 0, 0, tzinfo=datetime.timezone.utc)
-# today_at_three_night = datetime.datetime(2021, 3, 22, 3, 0, tzinfo=datetime.timezone.utc)
-# today_at_six_morning = datetime.datetime(2021, 3, 22, 6, 0, tzinfo=datetime.timezone.utc)
-# today_at_nine_morning = datetime.datetime(2021, 3, 22, 9, 0, tzinfo=datetime.timezone.utc)
-today_at_mid = datetime.datetime(2021, 3, 22, 12, 0, tzinfo=datetime.timezone.utc)
-today_at_three = datetime.datetime(2021, 3, 22, 15, 0, tzinfo=datetime.timezone.utc)
-today_at_six = datetime.datetime(2021, 3, 22, 18, 0, tzinfo=datetime.timezone.utc)
-today_at_nine = datetime.datetime(2021, 3, 22, 21, 0, tzinfo=datetime.timezone.utc)
-
 tomorrow_at_midnight = timestamps.tomorrow(0, 0)
 tomorrow_at_three_night = timestamps.tomorrow(3, 0)
 tomorrow_at_six_morning = timestamps.tomorrow(6, 0)
@@ -38,11 +27,6 @@ tomorrow_at_six = timestamps.tomorrow(18, 0)
 tomorrow_at_nine = timestamps.tomorrow(21, 0)
 
 three_h_forecaster = mgr.forecast_at_place('Saint Petersburg', '3h')
-sweather_today = three_h_forecaster.get_weather_at(today_at_mid).temperature("celsius")["temp"]
-sweather_today1 = three_h_forecaster.get_weather_at(today_at_three).temperature("celsius")["temp"]
-sweather_today2 = three_h_forecaster.get_weather_at(today_at_six).temperature("celsius")["temp"]
-sweather_today3 = three_h_forecaster.get_weather_at(today_at_nine).temperature("celsius")["temp"]
-
 sweather_tomorrow = three_h_forecaster.get_weather_at(tomorrow_at_midnight).temperature("celsius")["temp"]
 sweather_tomorrow1 = three_h_forecaster.get_weather_at(tomorrow_at_three_night).temperature("celsius")["temp"]
 sweather_tomorrow2 = three_h_forecaster.get_weather_at(tomorrow_at_six_morning).temperature("celsius")["temp"]
@@ -53,11 +37,6 @@ sweather_tomorrow6 = three_h_forecaster.get_weather_at(tomorrow_at_six).temperat
 sweather_tomorrow7 = three_h_forecaster.get_weather_at(tomorrow_at_nine).temperature("celsius")["temp"]
 
 mthree_h_forecaster = mgr.forecast_at_place('Moscow', '3h')
-mweather_today = mthree_h_forecaster.get_weather_at(today_at_mid).temperature("celsius")["temp"]
-mweather_today1 = mthree_h_forecaster.get_weather_at(today_at_three).temperature("celsius")["temp"]
-mweather_today2 = mthree_h_forecaster.get_weather_at(today_at_six).temperature("celsius")["temp"]
-mweather_today3 = mthree_h_forecaster.get_weather_at(today_at_nine).temperature("celsius")["temp"]
-
 mweather_tomorrow = mthree_h_forecaster.get_weather_at(tomorrow_at_midnight).temperature("celsius")["temp"]
 mweather_tomorrow1 = mthree_h_forecaster.get_weather_at(tomorrow_at_three_night).temperature("celsius")["temp"]
 mweather_tomorrow2 = mthree_h_forecaster.get_weather_at(tomorrow_at_six_morning).temperature("celsius")["temp"]
@@ -68,11 +47,6 @@ mweather_tomorrow6 = mthree_h_forecaster.get_weather_at(tomorrow_at_six).tempera
 mweather_tomorrow7 = mthree_h_forecaster.get_weather_at(tomorrow_at_nine).temperature("celsius")["temp"]
 
 dthree_h_forecaster = mgr.forecast_at_place('Donetsk', '3h')
-dweather_today = dthree_h_forecaster.get_weather_at(today_at_mid).temperature("celsius")["temp"]
-dweather_today1 = dthree_h_forecaster.get_weather_at(today_at_three).temperature("celsius")["temp"]
-dweather_today2 = dthree_h_forecaster.get_weather_at(today_at_six).temperature("celsius")["temp"]
-dweather_today3 = dthree_h_forecaster.get_weather_at(today_at_nine).temperature("celsius")["temp"]
-
 dweather_tomorrow = dthree_h_forecaster.get_weather_at(tomorrow_at_midnight).temperature("celsius")["temp"]
 dweather_tomorrow1 = dthree_h_forecaster.get_weather_at(tomorrow_at_three_night).temperature("celsius")["temp"]
 dweather_tomorrow2 = dthree_h_forecaster.get_weather_at(tomorrow_at_six_morning).temperature("celsius")["temp"]
@@ -81,3 +55,38 @@ dweather_tomorrow4 = dthree_h_forecaster.get_weather_at(tomorrow_at_mid).tempera
 dweather_tomorrow5 = dthree_h_forecaster.get_weather_at(tomorrow_at_three).temperature("celsius")["temp"]
 dweather_tomorrow6 = dthree_h_forecaster.get_weather_at(tomorrow_at_six).temperature("celsius")["temp"]
 dweather_tomorrow7 = dthree_h_forecaster.get_weather_at(tomorrow_at_nine).temperature("celsius")["temp"]
+
+now = datetime.datetime.now().hour
+
+
+def get_forecast(city, lat, lon):
+    day = datetime.datetime.now().day
+    year = datetime.datetime.now().year
+    month = datetime.datetime.now().month
+    x = 0
+    n = []
+    n1 = []
+
+    while x < now:
+        n.append(x)
+        x += 3
+
+    for i in n:
+        try:
+            tchn = formatting.to_UNIXtime(datetime.datetime(year, month, day, i, 0, tzinfo=datetime.timezone.utc))
+            n1.append(mgr.one_call_history(lat=lat, lon=lon, dt=tchn).current.temperature("celsius")["temp"])
+        except Exception:
+            pass
+
+    three_h_forecaster = mgr.forecast_at_place(city, '3h')
+    while 22 > x >= now:
+        n.append(x)
+        n1.append(three_h_forecaster.get_weather_at(
+            datetime.datetime(year, month, day, x, 0, tzinfo=datetime.timezone.utc)).temperature("celsius")["temp"])
+        x += 3
+    return n1
+
+
+sweather_today = get_forecast("Saint Petersburg, RU", 59.9386, 30.3141)
+mweather_today = get_forecast("Moscow, RU", 55.7522, 37.6156)
+dweather_today = get_forecast("Donetsk, UA", 48.023, 37.8022)
