@@ -59,7 +59,7 @@ dweather_tomorrow7 = dthree_h_forecaster.get_weather_at(tomorrow_at_nine).temper
 now = datetime.datetime.now().hour
 now_bruh = now/3
 if isinstance(now_bruh, float):
-    now = now-1
+    now = int(now_bruh)*3
 else:
     pass
 
