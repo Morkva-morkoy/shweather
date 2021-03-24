@@ -81,10 +81,10 @@ def get_forecast(city, lat, lon):
             tchn = formatting.to_UNIXtime(datetime.datetime(year, month, day, i, 0, tzinfo=datetime.timezone.utc))
             n1.append(mgr.one_call_history(lat=lat, lon=lon, dt=tchn).current.temperature("celsius")["temp"])
         except Exception:
-            pass
+            print('Беды')
 
     three_h_forecaster = mgr.forecast_at_place(city, '3h')
-    while 22 > x >= now:
+    while 21 >= x >= now:
         n.append(x)
         n1.append(three_h_forecaster.get_weather_at(
             datetime.datetime(year, month, day, x, 0, tzinfo=datetime.timezone.utc)).temperature("celsius")["temp"])
