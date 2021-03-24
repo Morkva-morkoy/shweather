@@ -72,8 +72,5 @@ def h():
     return render_template('donbass_more.html', temp=temp)
 
 
-
-
-
 if __name__ == '__main__':
     app.run()
