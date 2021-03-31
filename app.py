@@ -72,6 +72,11 @@ def h():
     return render_template('donbass_more.html', temp=temp)
 
 
+@app.route('/country-list')
+def countries():
+    return render_template('spisok.html')
+
+
 
 
 

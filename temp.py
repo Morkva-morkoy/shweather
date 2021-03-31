@@ -91,7 +91,6 @@ def get_forecast(city, lat, lon):
         x += 3
     return n1
 
-
 sweather_today = get_forecast("Saint Petersburg, RU", 59.9386, 30.3141)
 mweather_today = get_forecast("Moscow, RU", 55.7522, 37.6156)
 dweather_today = get_forecast("Donetsk, UA", 48.023, 37.8022)
