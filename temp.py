@@ -1,6 +1,7 @@
 from pyowm import OWM
 from pyowm.utils import timestamps, formatting, config
 import datetime
+import json
 
 owm = OWM('9a5b8a94e895ee75f75dee6ec42c3414')
 mgr = owm.weather_manager()
@@ -57,41 +58,44 @@ dweather_tomorrow6 = dthree_h_forecaster.get_weather_at(tomorrow_at_six).tempera
 dweather_tomorrow7 = dthree_h_forecaster.get_weather_at(tomorrow_at_nine).temperature("celsius")["temp"]
 
 now = datetime.datetime.now().hour
-now_bruh = now/3
+now_bruh = now / 3
 if isinstance(now_bruh, float):
-    now = int(now_bruh)*3
+    now = int(now_bruh) * 3
 else:
     pass
 
 
-def get_forecast(city, lat, lon):
-    day = datetime.datetime.now().day
-    year = datetime.datetime.now().year
-    month = datetime.datetime.now().month
-    x = 0
-    n = []
-    n1 = []
-
-    while x < now:
-        n.append(x)
-        x += 3
-
-    for i in n:
-        try:
-            tchn = formatting.to_UNIXtime(datetime.datetime(year, month, day, i, 0, tzinfo=datetime.timezone.utc))
-            n1.append(mgr.one_call_history(lat=lat, lon=lon, dt=tchn).current.temperature("celsius")["temp"])
-        except Exception:
-            print('Беды')
-
-    three_h_forecaster = mgr.forecast_at_place(city, '3h')
-    while 21 >= x >= now:
-        n.append(x)
-        n1.append(three_h_forecaster.get_weather_at(
-            datetime.datetime(year, month, day, x, 0, tzinfo=datetime.timezone.utc)).temperature("celsius")["temp"])
-        x += 3
-    return n1
-
-
-sweather_today = get_forecast("Saint Petersburg, RU", 59.9386, 30.3141)
-mweather_today = get_forecast("Moscow, RU", 55.7522, 37.6156)
-dweather_today = get_forecast("Donetsk, UA", 48.023, 37.8022)
+# def get_forecast(city, lat, lon):
+#     day = datetime.datetime.now().day
+#     year = datetime.datetime.now().year
+#     month = datetime.datetime.now().month
+#     x = 0
+#     n = []
+#     n1 = []
+#     tzinfo = datetime.datetime.now(datetime.timezone(datetime.timedelta(0))).astimezone().tzinfo
+#
+#     while x < now:
+#         n.append(x)
+#         x += 3
+#
+#     for i in n:
+#         try:
+#             tchn = formatting.to_UNIXtime(datetime.datetime(year, month, day, i, 0, tzinfo=tzinfo))
+#             n1.append(mgr.one_call_history(lat=lat, lon=lon, dt=tchn).current.temperature("celsius")["temp"])
+#         except Exception:
+#             print('Беды')
+#
+#     three_h_forecaster = mgr.forecast_at_place(city, '3h')
+#     while 21 >= x >= now:
+#         n.append(x)
+#         n1.append(three_h_forecaster.get_weather_at(datetime.datetime(year, month, day, x, 0, tzinfo=tzinfo)).temperature("celsius")["temp"])
+#         x += 3
+#     return n1
+#
+#
+# with open('cities.json', "r", encoding='utf-8') as file:
+#     x = json.loads(file.read())
+#
+# sweather_today = get_forecast("Saint Petersburg, RU", 59.9386, 30.3141)
+# mweather_today = get_forecast("Moscow, RU", 55.7522, 37.6156)
+# dweather_today = get_forecast("Donetsk, UA", 48.023, 37.8022)
