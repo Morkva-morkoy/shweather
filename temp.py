@@ -56,8 +56,28 @@ dweather_tomorrow5 = dthree_h_forecaster.get_weather_at(tomorrow_at_three).tempe
 dweather_tomorrow6 = dthree_h_forecaster.get_weather_at(tomorrow_at_six).temperature("celsius")["temp"]
 dweather_tomorrow7 = dthree_h_forecaster.get_weather_at(tomorrow_at_nine).temperature("celsius")["temp"]
 
-now = datetime.datetime.now().hour
-now_bruh = now/3
+tzinfo = datetime.datetime.now(datetime.timezone(datetime.timedelta(0))).astimezone().tzinfo
+
+spb_tzinfo = datetime.timezone(datetime.timedelta(seconds=10800))
+san_fran_tzinfo = datetime.timezone(datetime.timedelta(days=-1, seconds=61200))
+# now = datetime.datetime.now().hour
+# now_bruh = now/3
+if datetime.datetime.now(datetime.timezone(datetime.timedelta(0))).astimezone().tzinfo == datetime.timezone(datetime.timedelta(days=-1, seconds=61200), 'US Mountain Standard Time'):
+    print("Location: San-Francisco(Heroku global server)")
+    now = datetime.datetime.now().hour
+    now_bruh = int(now/3)*3
+    spb_time_now = now_bruh+10
+    spb_time_now = int(spb_time_now/3)*3
+    now_unix = formatting.to_UNIXtime(datetime.datetime(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day, int(now_bruh)-1, 0, tzinfo=san_fran_tzinfo))
+elif datetime.datetime.now(datetime.timezone(datetime.timedelta(0))).astimezone().tzinfo == datetime.timezone(datetime.timedelta(seconds=10800), 'Russia TZ 2 Standard Time'):
+    print("Location: Saint-Petersburg(Flask local server)")
+    now = datetime.datetime.now().hour
+    now_bruh = int(now/3)*3
+    san_fran_time_now = now_bruh-10
+    san_fran_time_now = int(san_fran_time_now/3)*3
+    now_unix = formatting.to_UNIXtime(datetime.datetime(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day, int(now_bruh), 0, tzinfo=spb_tzinfo))
+
+spb_weather_now = mgr.one_call_history(lat=59.9386, lon=30.3141, dt=now_unix).current.temperature("celsius")["temp"]
 if isinstance(now_bruh, float):
     now = int(now_bruh)*3
 else:
@@ -78,7 +98,7 @@ def get_forecast(city, lat, lon):
 
     for i in n:
         try:
-            tchn = formatting.to_UNIXtime(datetime.datetime(year, month, day, i, 0, tzinfo=datetime.timezone.utc))
+            tchn = formatting.to_UNIXtime(datetime.datetime(year, month, day, i, 0, tzinfo=san_fran_tzinfo))
             n1.append(mgr.one_call_history(lat=lat, lon=lon, dt=tchn).current.temperature("celsius")["temp"])
         except Exception:
             pass
@@ -87,7 +107,7 @@ def get_forecast(city, lat, lon):
     while 22 > x >= now:
         n.append(x)
         n1.append(three_h_forecaster.get_weather_at(
-            datetime.datetime(year, month, day, x, 0, tzinfo=datetime.timezone.utc)).temperature("celsius")["temp"])
+            datetime.datetime(year, month, day, x, 0, tzinfo=san_fran_tzinfo)).temperature("celsius")["temp"])
         x += 3
     return n1
 
