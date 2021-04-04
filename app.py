@@ -1,18 +1,17 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 from um import temp
 from flask import jsonify
 from flask import request
 from db import cursor
 import sqlite3
 import random
-import datetime
 
 app = Flask(__name__)
 
 
 @app.route("/get_my_ip", methods=["GET"])
 def get_my_ip():
-    return datetime.timezone(datetime.timedelta(days=-1, seconds=61200))
+    return jsonify({'ip': request.remote_addr}), 200
 
 
 @app.route('/sign-up', methods=["post"])
@@ -50,8 +49,6 @@ def shlp():
 
 @app.route('/shweather')
 def shweather():
-    # q = request.args.get("q", "")
-    # cityies = List[City] = City.query.filter(City)
     return render_template('a.html', temp=temp)
 
 
@@ -75,7 +72,13 @@ def h():
     return render_template('donbass_more.html', temp=temp)
 
 
-print(datetime.timezone(datetime.timedelta(days=-1, seconds=61200)))
+@app.route('/country-list')
+def countries():
+    return render_template('spisok.html')
+
+
+
+
 
 if __name__ == '__main__':
     app.run()
