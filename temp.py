@@ -66,7 +66,11 @@ if datetime.datetime.now(datetime.timezone(datetime.timedelta(0))).astimezone().
     print("Location: San-Francisco(Heroku global server)")
     now = datetime.datetime.now().hour
     now_bruh = int(now/3)*3
+    new_day = False
     spb_time_now = now_bruh+10
+    if spb_time_now > 23:
+        spb_time_now = spb_time_now - 24
+        new_day = True
     spb_time_now = int(spb_time_now/3)*3
     now_unix = formatting.to_UNIXtime(datetime.datetime(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day, int(now_bruh)-1, 0, tzinfo=san_fran_tzinfo))
     now = spb_time_now
@@ -87,7 +91,10 @@ elif datetime.datetime.now(datetime.timezone(datetime.timedelta(0))).astimezone(
 # now = spb_time_now
 
 def get_forecast(city, lat, lon):
-    day = datetime.datetime.now().day
+    if new_day == True:
+        day = datetime.datetime.now().day + 1
+    else:
+        day = datetime.datetime.now().day
     year = datetime.datetime.now().year
     month = datetime.datetime.now().month
     x = 0
