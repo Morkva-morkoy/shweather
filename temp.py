@@ -62,11 +62,12 @@ spb_tzinfo = datetime.timezone(datetime.timedelta(seconds=10800))
 san_fran_tzinfo = datetime.timezone(datetime.timedelta(days=-1, seconds=61200))
 # now = datetime.datetime.now().hour
 # now_bruh = now/3
-if datetime.datetime.now(datetime.timezone(datetime.timedelta(0))).astimezone().tzinfo == datetime.timezone(datetime.timedelta(days=-1, seconds=61200), 'US Mountain Standard Time'):
+new_day = False
+print(tzinfo)
+if tzinfo == datetime.timezone(datetime.timedelta(days=-1, seconds=61200), 'US Mountain Standard Time'):
     print("Location: San-Francisco(Heroku global server)")
     now = datetime.datetime.now().hour
     now_bruh = int(now/3)*3
-    new_day = False
     spb_time_now = now_bruh+10
     if spb_time_now > 23:
         spb_time_now = spb_time_now - 24
@@ -74,7 +75,7 @@ if datetime.datetime.now(datetime.timezone(datetime.timedelta(0))).astimezone().
     spb_time_now = int(spb_time_now/3)*3
     now_unix = formatting.to_UNIXtime(datetime.datetime(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day, int(now_bruh)-1, 0, tzinfo=san_fran_tzinfo))
     now = spb_time_now
-elif datetime.datetime.now(datetime.timezone(datetime.timedelta(0))).astimezone().tzinfo == datetime.timezone(datetime.timedelta(seconds=10800), 'Russia TZ 2 Standard Time'):
+elif tzinfo == datetime.timezone(datetime.timedelta(seconds=10800), 'Russia TZ 2 Standard Time'):
     print("Location: Saint-Petersburg(Flask local server)")
     now = datetime.datetime.now().hour
     now_bruh = int(now/3)*3
