@@ -77,8 +77,5 @@ def countries():
     return render_template('spisok.html')
 
 
-
-
-
 if __name__ == '__main__':
     app.run()

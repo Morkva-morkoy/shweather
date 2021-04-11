@@ -67,21 +67,27 @@ print(tzinfo)
 if tzinfo == datetime.timezone(datetime.timedelta(days=-1, seconds=61200), 'US Mountain Standard Time'):
     print("Location: San-Francisco(Heroku global server)")
     now = datetime.datetime.now().hour
-    now_bruh = int(now/3)*3
-    spb_time_now = now_bruh+10
+    now_bruh = int(now / 3) * 3
+    new_day = False
+    spb_time_now = now_bruh + 10
     if spb_time_now > 23:
         spb_time_now = spb_time_now - 24
         new_day = True
-    spb_time_now = int(spb_time_now/3)*3
-    now_unix = formatting.to_UNIXtime(datetime.datetime(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day, int(now_bruh)-1, 0, tzinfo=san_fran_tzinfo))
+    spb_time_now = int(spb_time_now / 3) * 3
+    now_unix = formatting.to_UNIXtime(
+        datetime.datetime(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day,
+                          int(now_bruh) - 1, 0, tzinfo=san_fran_tzinfo))
     now = spb_time_now
 elif tzinfo == datetime.timezone(datetime.timedelta(seconds=10800), 'Russia TZ 2 Standard Time'):
     print("Location: Saint-Petersburg(Flask local server)")
     now = datetime.datetime.now().hour
-    now_bruh = int(now/3)*3
-    san_fran_time_now = now_bruh-10
-    san_fran_time_now = int(san_fran_time_now/3)*3
-    now_unix = formatting.to_UNIXtime(datetime.datetime(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day, int(now_bruh), 0, tzinfo=spb_tzinfo))
+    now_bruh = int(now / 3) * 3
+    san_fran_time_now = now_bruh - 10
+    san_fran_time_now = int(san_fran_time_now / 3) * 3
+    now_unix = formatting.to_UNIXtime(
+        datetime.datetime(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day,
+                          int(now_bruh), 0, tzinfo=spb_tzinfo))
+
 
 # spb_weather_now = mgr.one_call_history(lat=59.9386, lon=30.3141, dt=now_unix).current.temperature("celsius")["temp"]
 # if isinstance(now_bruh, float):
@@ -116,9 +122,12 @@ def get_forecast(city, lat, lon):
     three_h_forecaster = mgr.forecast_at_place(city, '3h')
     while 22 > x > now:
         n.append(x)
-        n1.append(three_h_forecaster.get_weather_at(datetime.datetime(year, month, day, x, 0, tzinfo=spb_tzinfo)).temperature("celsius")["temp"])
+        n1.append(
+            three_h_forecaster.get_weather_at(datetime.datetime(year, month, day, x, 0, tzinfo=spb_tzinfo)).temperature(
+                "celsius")["temp"])
         x += 3
     return n1
+
 
 sweather_today = get_forecast("Saint Petersburg, RU", 59.9386, 30.3141)
 mweather_today = get_forecast("Moscow, RU", 55.7522, 37.6156)
