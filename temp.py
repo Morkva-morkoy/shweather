@@ -62,7 +62,6 @@ spb_tzinfo = datetime.timezone(datetime.timedelta(seconds=10800))
 san_fran_tzinfo = datetime.timezone(datetime.timedelta(days=-1, seconds=61200))
 
 new_day = False
-now = ""
 print(tzinfo)
 if tzinfo == datetime.timezone(datetime.timedelta(days=-1, seconds=61200), 'US Mountain Standard Time'):
     print("Location: San-Francisco(Heroku global server)")
