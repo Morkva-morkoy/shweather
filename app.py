@@ -24,37 +24,42 @@ def p():
         conn.execute(f"INSERT INTO users (id, nickname, password, email, city) \
           VALUES ('{random.randint(1, 10000)}', '{text2}', '{text1}', '{text}', '{text3}')")
         conn.commit()
-    return render_template('b.html')
+    return render_template('sign-up.html')
 
 
 @app.route('/')
 def hello_world():
-    return render_template('d.html')
+    return render_template('main.html')
 
 
 @app.route('/sign-up')
 def log():
-    return render_template('b.html', cursor=cursor)
+    return render_template('sign-up.html', cursor=cursor)
 
 
 @app.route('/log-in')
 def login():
-    return render_template('f.html', cursor=cursor)
+    return render_template('log-in.html', cursor=cursor)
 
 
 @app.route('/shlyapa-voice')
 def shlp():
-    return render_template('c.html')
+    return render_template('voice.html')
 
 
 @app.route('/shweather')
 def shweather():
-    return render_template('a.html', temp=temp)
+    return render_template('shweather.html', temp=temp)
+
+
+@app.route('/bot')
+def dbot():
+    return render_template('bot.html')
 
 
 @app.route('/secret')
 def a():
-    return render_template('h.html', temp=temp)
+    return render_template('template.html', temp=temp)
 
 
 @app.route('/spb')
