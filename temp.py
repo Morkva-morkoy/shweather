@@ -68,7 +68,7 @@ if tzinfo == datetime.timezone(datetime.timedelta(seconds=10800), 'Russia TZ 2 S
     print("Time zone: UTC+3(Flask local server)")
     now = datetime.datetime.now().hour
     now_bruh = int(now/3)*3
-    heroku_time_now = now_bruh-10
+    heroku_time_now = now_bruh-3
     heroku_time_now = int(heroku_time_now/3)*3
     now_unix = formatting.to_UNIXtime(datetime.datetime(datetime.datetime.now().year, datetime.datetime.now().month, datetime.datetime.now().day, int(now_bruh), 0, tzinfo=spb_tzinfo))
 else:
