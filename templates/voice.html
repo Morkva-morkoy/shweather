@@ -7,6 +7,9 @@
 <title>Voice assistant by SHLYAPA</title>
 <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
 <link rel="shortcut icon" href="{{url_for('static', filename='img/shlyapa.ico')}}" type="image/x-icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@600&display=swap" rel="stylesheet">
 
 
 
@@ -62,7 +65,9 @@
   <div class="starter-template text-center px-3" style="padding-top: 3rem">
     <h1 style="color: rgba(255, 255, 255, .8); font-size: 3.5rem;">SHLYAPA Voice Assistant</h1>
     <p class="lead text-white-50">blah-blah-blah<br>*description*</p>
-    <a type="button" class="btn btn-outline-light" href="{{url_for('static', filename='SHLYAPA-master.zip')}}" download>Download zip</a>
+    <a type="button" class="btn btn-outline-light" style="margin: 0.5rem;" href="{{url_for('static', filename='SHLYAPA-master.zip')}}" download>Download source</a>
+    <br>
+    <a type="button" class="btn btn-outline-light" style="margin: 0.5rem;" href="{{url_for('static', filename='shlyapa-voice')}}" download>Download executable</a>
   </div>
 
 </main>
